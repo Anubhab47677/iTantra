@@ -24,6 +24,9 @@ iTantra addresses this by transforming:
 Speech → Speech-to-Text (STT) → Lightweight Text → Transmission → Text → Text-to-Speech (TTS) → Speech
 
 The result is a communication pipeline that minimizes the amount of information that needs to cross the constrained link.
+![Image description](assets/iTantra_dashboard.png)
+
+![Image description](assets/iTantra_dashboard2.png)
 
 🚀 Key Features
 
@@ -38,6 +41,7 @@ Converts received text back into speech so that the receiver can hear the messag
 3. Multilingual Communication
 
 Designed to support communication across Indian/regional languages through multilingual STT and TTS components.
+(Supportive Languages: English, Hindi, Bengali, Tamil)
 
 4. Low-Bandwidth Communication
 
