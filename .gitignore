@@ -87,3 +87,7 @@ desktop.ini
 *.mp3
 *.flac
 *.ogg
+
+# Large project archives
+itantrafrontend.zip
+MPOSR_COMPLETE_DATASET.zip
