@@ -141,15 +141,6 @@ The iTantra communication pipeline follows a Speech → Text → Transmission �
 └──────────────┘
 ```
 
-### Why this works
-
-The three backticks:
-
-````markdown
-```text
-...
-```
-
 ## 🏗️ Technical Architecture
 
 The proposed architecture is divided into six major stages:
