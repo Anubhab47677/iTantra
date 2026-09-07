@@ -1,0 +1,89 @@
+# ==============================
+# Environment / Secrets
+# ==============================
+.env
+.env.*
+!.env.example
+
+# ==============================
+# Node.js
+# ==============================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ==============================
+# Python
+# ==============================
+__pycache__/
+*.py[cod]
+*.pyo
+
+.venv/
+venv/
+env/
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ==============================
+# Jupyter
+# ==============================
+.ipynb_checkpoints/
+
+# ==============================
+# Build / Distribution
+# ==============================
+dist/
+build/
+*.egg-info/
+
+# ==============================
+# Logs
+# ==============================
+*.log
+
+# ==============================
+# OS files
+# ==============================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==============================
+# VS Code
+# ==============================
+.vscode/
+
+# ==============================
+# Temporary files
+# ==============================
+*.tmp
+*.temp
+
+# ==============================
+# Large ML files
+# ==============================
+# Add model files here if they are too large for normal Git
+# *.onnx
+# *.tflite
+# *.pt
+# *.pth
+# *.bin
+
+# ==============================
+# Local runtime data
+# ==============================
+*.sqlite
+*.sqlite3
+
+# ==============================
+# Generated audio
+# ==============================
+*.wav
+*.mp3
+*.flac
+*.ogg

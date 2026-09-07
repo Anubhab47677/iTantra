@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iTantra — Offline Neural Radio Network</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-header">
+        <div class="logo">
+            <span class="signal-icon">📡</span> iTantra <span class="badge">OFFLINE NEURAL RADIO</span>
+        </div>
+        <div class="header-metrics">
+            <div class="metric-chip">BANDWIDTH: <strong class="green">99.9% SAVED (72 bps)</strong></div>
+            <div class="metric-chip">STATUS: <strong class="green">ZERO INTERNET / ZERO SIM</strong></div>
+            <div class="metric-chip">LORA MESH: <strong class="amber">50 KM ACTIVE</strong></div>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <!-- LEFT PANEL: TACTICAL WALKIE-TALKIE TRANSMITTER & RECEIVER -->
+        <div class="panel transmitter-panel">
+            <h2>🎙️ Tactical Walkie-Talkie Unit</h2>
+            
+            <div class="control-group">
+                <label>Select Target Language Output:</label>
+                <select id="langSelect" class="input-select">
+                    <option value="1" selected>Hindi (हिंदी)</option>
+                    <option value="2">Bengali (বাংলা)</option>
+                    <option value="3">Tamil (தமிழ்)</option>
+                    <option value="4">Code-Mixed Auto (मिश्रित / মিশ্র / கலப்பு)</option>
+                    <option value="0">English</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label>Preset Emergency Voice Message:</label>
+                <select id="presetSelect" class="input-select" onchange="loadPreset()">
+                    <option value="Emergency! Water level rising in Sector 4! Send rescue boats!">🚨 Emergency! Water level rising in Sector 4!</option>
+                    <option value="Critical alert! Bridge collapsed at Sector 2! Trapped civilians!">⚠️ Critical alert! Bridge collapsed at Sector 2!</option>
+                    <option value="Emergency help! Sector 4 এ water level fast বাড়ছে rescue करो">🔀 Code-Mixed: Emergency help! Sector 4 এ water level বাড়ছে</option>
+                    <option value="All clear at Base Camp Alpha. Status normal.">✅ All clear at Base Camp Alpha.</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label>Custom Voice Input Text:</label>
+                <textarea id="messageText" class="input-textarea" rows="2">Emergency! Water level rising in Sector 4! Send rescue boats!</textarea>
+            </div>
+
+            <div class="toggle-group">
+                <label class="toggle-label">
+                    <input type="checkbox" id="urgencyToggle" checked>
+                    <span class="toggle-slider"></span>
+                    <span class="toggle-text">CRITICAL URGENCY OVERRIDE (+35% Tempo, +40Hz Pitch)</span>
+                </label>
+            </div>
+
+            <!-- PUSH TO TALK BUTTON -->
+            <div class="ptt-container">
+                <button id="pttBtn" class="ptt-button" onmousedown="startPTT()" onmouseup="stopPTT()" ontouchstart="startPTT()" ontouchend="stopPTT()">
+                    <div class="ptt-icon">🎙️</div>
+                    <div class="ptt-text">HOLD PUSH-TO-TALK</div>
+                    <div class="ptt-sub">TRANSMITS 69-BYTE BINARY PACKET</div>
+                </button>
+            </div>
+
+            <!-- RECEIVER SPEAKER OUTPUT CARD -->
+            <div class="receiver-card">
+                <h3>🔊 Recipient Station Loudspeaker</h3>
+                <div id="rxStatus" class="rx-status-idle">IDLE — Waiting for RF Burst</div>
+                <div id="speakerOutput" class="speaker-output-text">"Press PTT above to transmit..."</div>
+                <div id="urgencyBadge" class="urgency-badge hidden">⚡ CRITICAL URGENCY ACTIVE: 2-TONE CHIME + PITCH SHIFT</div>
+            </div>
+        </div>
+
+        <!-- RIGHT PANEL: DISASTER RELAY & PACKET LOSS SIMULATOR (SLIDE 5 DEMO) -->
+        <div class="panel relay-panel">
+            <h2>⚡ Disaster Relay & 69B Packet Inspector</h2>
+            
+            <div class="relay-stats-grid">
+                <div class="stat-box">
+                    <span class="stat-title">SIMULATED PACKET LOSS</span>
+                    <span class="stat-value red">15%</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-title">LATENCY</span>
+                    <span class="stat-value amber">100 ms</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-title">JITTER</span>
+                    <span class="stat-value">±50 ms</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-title">PACKET SIZE</span>
+                    <span class="stat-value green">69 Bytes</span>
+                </div>
+            </div>
+
+            <div class="packet-inspector">
+                <h3>📦 69-Byte Binary Frame Inspection</h3>
+                <div id="hexDisplay" class="hex-box">00000000  49 54 41 4e 00 00 00 00  00 00 00 00 00 00 00 00  |ITAN............|</div>
+                
+                <div class="frame-legend">
+                    <span class="legend-item sync">[0..3] Header: 4B</span>
+                    <span class="legend-item latent">[4..19] Latent: 16B</span>
+                    <span class="legend-item phoneme">[20..59] Phoneme: 40B</span>
+                    <span class="legend-item ctrl">[60..64] Ctrl: 5B</span>
+                    <span class="legend-item crc">[65..68] CRC: 4B</span>
+                </div>
+            </div>
+
+            <div class="relay-logs-container">
+                <h3>📋 Real-Time Disaster Mesh Transmission Logs</h3>
+                <div id="logConsole" class="log-console">
+                    <div class="log-line info">[SYSTEM] iTantra 69-Byte Disaster Relay Online. Ready for PTT transmission...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

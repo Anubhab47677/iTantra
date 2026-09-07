@@ -1,0 +1,6 @@
+target_kbps,actual_kbps,codebooks,compression_ratio,encoded_bytes,output_file
+1.5,1.5,2,170.7,938,hindi_clip_recon_1.5kbps.wav
+3.0,3.0,4,85.4,1875,hindi_clip_recon_3.0kbps.wav
+6.0,6.0,8,42.7,3750,hindi_clip_recon_6.0kbps.wav
+12.0,12.0,16,21.3,7500,hindi_clip_recon_12.0kbps.wav
+24.0,24.0,32,10.7,15000,hindi_clip_recon_24.0kbps.wav
