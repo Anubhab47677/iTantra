@@ -12,21 +12,16 @@ This approach is intended for rural and low-connectivity environments, disaster/
 
 Voice/audio communication is data-intensive. Over low-data-rate links, transmitting raw audio can require significantly more bandwidth and can become unreliable, especially during:
 
-Disaster and emergency situations
-
-Network outages
-
-Remote/rural operations
-
-Low-bandwidth environments
-
-Field communication
-
-Situations where mobile data or cloud services are unavailable
+- Disaster and emergency situations
+- Network outages
+- Remote/rural operations
+- Low-bandwidth environments
+- Field communication
+- Situations where mobile data or cloud services are unavailable
 
 iTantra addresses this by transforming:
 
-Speech → Speech-to-Text (STT) → Lightweight Text → Transmission → Text → Text-to-Speech (TTS) → Speech
+### Speech → Speech-to-Text (STT) → Lightweight Text → Transmission → Text → Text-to-Speech (TTS) → Speech
 
 The result is a communication pipeline that minimizes the amount of information that needs to cross the constrained link.
 
@@ -60,13 +55,10 @@ The architecture is designed to support local STT/TTS inference, reducing depend
 
 The proposed communication layer can operate through available local connectivity mechanisms such as:
 
-Wi-Fi
-
-Bluetooth
-
-Radio links
-
-Local/LAN communication
+- Wi-Fi
+- Bluetooth
+- Radio links
+- Local/LAN communication
 
 7. Walkie-Talkie Style Interaction
 
@@ -80,15 +72,11 @@ Includes an emergency-oriented communication concept with alert priority functio
 
 The technical approach includes a WebSocket-based simulation layer for evaluating constrained communication conditions and monitoring metrics such as:
 
-Bandwidth
-
-Packet loss
-
-Latency
-
-Bitrate
-
-Word Error Rate (WER)
+- Bandwidth
+- Packet loss
+- Latency
+- Bitrate
+- Word Error Rate (WER)
 
 10. Browser-Based Audio Capture
 
@@ -173,83 +161,42 @@ A WebSocket/communication layer can simulate constrained network conditions and 
 
 ## 🛠️ Technology Stack
 
-Layer
+| Layer | Technologies / Components |
+|---|---|
+| Frontend | HTML, CSS, JavaScript |
+| Backend | Node.js, FastAPI |
+| Transport | WebSocket |
+| Audio | Web Audio API, MediaRecorder API |
+| Edge Inference | ONNX Runtime Web / WebAssembly |
+| ML / Mobile Inference | TensorFlow Lite, PyTorch Mobile |
+| Data / Logging | SQLite, JSON logs |
+| Deployment | Localhost / LAN |
+| Speech Recognition References | AI4Bharat/Vakyansh ASR, whisper.cpp |
+| Speech Synthesis References | AI4Bharat Indic-TTS, sherpa-onnx |
+| Data References | AI4Bharat IndicCorp / IndicVoices, IITM Indic-TTS Dataset |
 
-Technologies / Components
-
-Frontend
-
-HTML, CSS, JavaScript
-
-Backend
-
-Node.js, FastAPI
-
-Transport
-
-WebSocket
-
-Audio
-
-Web Audio API, MediaRecorder API
-
-Edge Inference
-
-ONNX Runtime Web / WebAssembly
-
-ML / Mobile Inference
-
-TensorFlow Lite, PyTorch Mobile
-
-Data / Logging
-
-SQLite, JSON logs
-
-Deployment
-
-Localhost / LAN
-
-Speech Recognition References
-
-AI4Bharat/Vakyansh ASR, whisper.cpp
-
-Speech Synthesis References
-
-AI4Bharat Indic-TTS, sherpa-onnx
-
-Data References
-
-AI4Bharat IndicCorp / IndicVoices, IITM Indic-TTS Dataset
-
-Important: The project proposal lists several model/runtime options and research references. The exact model used in a particular build should be documented in the corresponding source/configuration files rather than assumed from the proposal.
+> **Important:** The project proposal lists several model/runtime options and research references. The exact model used in a particular build should be documented in the corresponding source/configuration files rather than assumed from the proposal.
 
 ## 🤖 AI / ML Components
 
 Speech-to-Text
 
 The research and technical proposal references:
-
-AI4Bharat / Vakyansh ASR Toolkit — Indic-language ASR models
-
-whisper.cpp — optimized/offline inference of OpenAI Whisper models
+- AI4Bharat / Vakyansh ASR Toolkit — Indic-language ASR models
+- whisper.cpp — optimized/offline inference of OpenAI Whisper models
 
 Text-to-Speech
 
 The proposal references:
-
-AI4Bharat Indic-TTS — Indic-language TTS models
-
-sherpa-onnx — on-device TTS inference using ONNX-based models
+- AI4Bharat Indic-TTS — Indic-language TTS models
+- sherpa-onnx — on-device TTS inference using ONNX-based models
 
 Edge / Offline Inference
 
 Potential runtimes mentioned in the architecture include:
-
-ONNX Runtime Web / WebAssembly
-
-TensorFlow Lite
-
-PyTorch Mobile
+- ONNX Runtime Web / WebAssembly
+- TensorFlow Lite
+- PyTorch Mobile
 
 The overall objective is to move inference closer to the user/device wherever hardware and model size permit.
 
@@ -277,54 +224,43 @@ Reconstructed Voice
 
 This is particularly useful when the communication channel has:
 
-Low bitrate
-<<<<<<< HEAD
-
-High latency
-
-Packet loss
-
-Intermittent connectivity
-
-Limited data availability
-=======
->>>>>>> a7b85f0fffb03611206e50b62e3e24a345198aa2
-
-High latency
-
-Packet loss
-
-Intermittent connectivity
-
-Limited data availability
+- Low bitrate
+- High latency
+- Packet loss
+- Intermittent connectivity
+- Limited data availability
 
 ## 📊 Network & Evaluation Metrics
 
 The proposed prototype includes live monitoring/simulation of communication conditions. Relevant metrics include:
 
-Bandwidth
+### Speech Recognition
 
-Measures the communication capacity available to the system.
+- **WER**
+- **Language-wise accuracy**
+- **Noise robustness**
+- **Accent/variation robustness**
 
-Bitrate
+### Communication
 
-Measures the amount of transmitted information per unit time.
+- **End-to-end latency**
+- **Effective bitrate**
+- **Packet-loss tolerance**
+- **Reconnection behavior**
 
-Latency
+### Speech Reconstruction
 
-Measures the delay between transmission and reception.
+- **TTS quality**
+- **Intelligibility**
+- **Language correctness**
 
-Packet Loss
+### System
 
-Measures the proportion of transmitted packets that fail to reach the receiver.
-
-Word Error Rate (WER)
-
-Measures speech-recognition accuracy by comparing recognized text with reference/transcribed text.
-
-A standard WER formulation is:
-
-WER = (Substitutions + Deletions + Insertions) / Number of Reference Words
+- **CPU usage**
+- **Memory consumption**
+- **Model size**
+- **Battery/resource requirements**
+- **Performance on low-end hardware**
 
 For multilingual evaluation, these metrics should ideally be reported separately for each supported language rather than only as one overall score.
 
@@ -332,15 +268,11 @@ For multilingual evaluation, these metrics should ideally be reported separately
 
 The architecture is intended to support communication over locally available links such as:
 
-Wi-Fi
-
-Bluetooth
-
-Radio
-
-LAN
-
-WebSocket-based prototype/simulation
+- **Wi-Fi**
+- **Bluetooth**
+- **Radio**
+- **LAN**
+- **WebSocket-based prototype/simulation**
 
 The actual physical radio integration can be treated as a deployment-specific communication layer while the STT → text → TTS pipeline remains modular.
 
@@ -348,21 +280,14 @@ The actual physical radio integration can be treated as a deployment-specific co
 
 The proposal's current prototype UI demonstrates a radio/communication interface containing concepts such as:
 
-Frequency/channel information
-
-Connection/standby state
-
-Language selection
-
-Push-to-talk control
-
-Voice input
-
-Alert priority
-
-Traffic/status information
-
-Message/communication area
+- Frequency/channel information
+- Connection/standby state
+- Language selection
+- Push-to-talk control
+- Voice input
+- Alert priority
+- Traffic/status information
+- Message/communication area
 
 This UI is designed around a walkie-talkie-style communication experience.
 
@@ -370,149 +295,51 @@ This UI is designed around a walkie-talkie-style communication experience.
 
 iTantra is designed with the following user groups in mind:
 
-Rural and low-connectivity users
-<<<<<<< HEAD
-
-Regional-language users
-
-Low-end device users
-
-Emergency and disaster-response teams
-
-Field teams
-
-Students and event teams
-
-Remote communities
-
-Users who cannot depend on continuous internet access
-=======
->>>>>>> a7b85f0fffb03611206e50b62e3e24a345198aa2
-
-Regional-language users
-
-Low-end device users
-
-Emergency and disaster-response teams
-
-Field teams
-
-Students and event teams
-
-Remote communities
-
-Users who cannot depend on continuous internet access
+- Rural and low-connectivity users
+- Regional-language users
+- Low-end device users
+- Emergency and disaster-response teams
+- Field teams
+- Students and event teams
+- Remote communities
+- Users who cannot depend on continuous internet access
 
 ## 🌍 Expected Impact
 
 Social Impact
 
-Improves communication accessibility in remote communities
-
-Supports regional-language communication
-
-Helps communication during emergencies
+- Improves communication accessibility in remote communities
+- Supports regional-language communication
+- Helps communication during emergencies
 
 Environmental Impact
 
-Reduces dependence on dedicated communication hardware
-
-Makes better use of existing smartphones
-
-Encourages lightweight processing
+- Reduces dependence on dedicated communication hardware
+- Makes better use of existing smartphones
+- Encourages lightweight processing
 
 Economic Impact
 
-Reduces dependency on expensive telecom infrastructure
-
-Works toward low/mid-range device compatibility
-
-Reduces mobile-data requirements
+- Reduces dependency on expensive telecom infrastructure
+- Works toward low/mid-range device compatibility
+- Reduces mobile-data requirements
 
 Disaster & Public Safety
-<<<<<<< HEAD
 
-Provides an alternative communication channel during network outages
-
-Can help responders exchange critical information
-
-Supports short-range communication without continuous internet dependency
-=======
->>>>>>> a7b85f0fffb03611206e50b62e3e24a345198aa2
-
-Provides an alternative communication channel during network outages
-
-<<<<<<< HEAD
-Challenge
-
-Proposed Mitigation
-
-Limited CPU / RAM / battery
-
-Quantization and compressed models
-
-STT accuracy affected by accents/noise
-
-Noise filtering and language-specific models
-
-Regional language variation
-
-Multilingual/language-specific speech models
-
-Connectivity interruptions
-
-Reconnection and adaptive switching
-
-Limited Wi-Fi/Bluetooth/radio range
-
-Modular communication layer
-
-Large AI models
-
-Edge optimization and lightweight runtimes
-
-Adding new languages/devices
-
-Modular architecture
-=======
-Can help responders exchange critical information
-
-Supports short-range communication without continuous internet dependency
->>>>>>> a7b85f0fffb03611206e50b62e3e24a345198aa2
+- Provides an alternative communication channel during network outages
+- Can help responders exchange critical information
 
 ## ⚠️ Challenges & Mitigation Strategies
 
-Challenge
-
-Proposed Mitigation
-
-Limited CPU / RAM / battery
-
-Quantization and compressed models
-
-STT accuracy affected by accents/noise
-
-Noise filtering and language-specific models
-
-Regional language variation
-
-Multilingual/language-specific speech models
-
-Connectivity interruptions
-
-Reconnection and adaptive switching
-
-Limited Wi-Fi/Bluetooth/radio range
-
-Modular communication layer
-
-Large AI models
-
-Edge optimization and lightweight runtimes
-
-Adding new languages/devices
-
-Modular architecture
+| Challenge | Proposed Mitigation |
+|---|---|
+| Limited CPU / RAM / battery | Quantization and compressed models |
+| STT accuracy affected by accents/noise | Noise filtering and language-specific models |
+| Regional language variation | Multilingual/language-specific speech models |
+| Connectivity interruptions | Reconnection and adaptive switching |
+| Limited Wi-Fi/Bluetooth/radio range | Modular communication layer |
+| Large AI models | Edge optimization and lightweight runtimes |
+| Adding new languages/devices | Modular architecture |
 
 ## 🔐 Security & Privacy Considerations
 
@@ -520,21 +347,13 @@ An offline-capable design can reduce the need to send raw voice recordings to cl
 
 Recommended implementation practices:
 
-Keep API keys and credentials outside Git
-
-Use .env files for secrets
-
-Never commit passwords or tokens
-
-Avoid committing private datasets
-
-Validate received communication payloads
-
-Restrict local network access where appropriate
-
-Log only information required for debugging/evaluation
-
-Never upload API keys, passwords, tokens, private certificates, or other secrets to GitHub.
+- Keep API keys and credentials outside Git
+- Use .env files for secrets
+- Never commit passwords or tokens
+- Avoid committing private datasets
+- Validate received communication payloads
+- Restrict local network access where appropriate
+- Log only information required for debugging/evaluation
 
 ## 📁 Suggested Repository Structure
 
@@ -611,127 +430,55 @@ Use the project's actual frontend/backend startup commands. Document the exact c
 
 The project can be evaluated at multiple levels:
 
-Speech Recognition
-
-WER
-
-Language-wise accuracy
-
-Noise robustness
-
-Accent/variation robustness
-
-Communication
-
-End-to-end latency
-
-Effective bitrate
-
-Packet-loss tolerance
-
-Reconnection behavior
-
-Speech Reconstruction
-
-TTS quality
-
-Intelligibility
-
-Language correctness
-
-System
-<<<<<<< HEAD
-
-CPU usage
-
-Memory consumption
-
-Model size
-
-Battery/resource requirements
-
-Performance on low-end hardware
-=======
->>>>>>> a7b85f0fffb03611206e50b62e3e24a345198aa2
-
-CPU usage
-
-Memory consumption
-
-Model size
-
-Battery/resource requirements
-
-Performance on low-end hardware
+- Speech Recognition
+- WER
+- Language-wise accuracy
+- Noise robustness
+- Accent/variation robustness
+- Communication
+- End-to-end latency
+- Effective bitrate
+- Packet-loss tolerance
+- Reconnection behavior
+- Speech Reconstruction
+- TTS quality
+- Intelligibility
+- Language correctness
+- System
+- CPU usage
+- Memory consumption
+- Model size
+- Battery/resource requirements
+- Performance on low-end hardware
 
 ## 🔬 Research References
 
 The proposal references the following technologies and datasets for the STT/TTS pipeline:
 
-AI4Bharat / Vakyansh ASR Toolkit
-
-whisper.cpp
-
-AI4Bharat Indic-TTS
-
-sherpa-onnx
-
-AI4Bharat IndicCorp / IndicVoices
-
-IITM Indic-TTS Dataset
+- AI4Bharat / Vakyansh ASR Toolkit
+- whisper.cpp
+- AI4Bharat Indic-TTS
+- sherpa-onnx
+- AI4Bharat IndicCorp / IndicVoices
+- IITM Indic-TTS Dataset
 
 These references are intended to support the development of multilingual speech recognition and synthesis components.
 
 ## 🗺️ Future Scope
 
 Potential extensions include:
-<<<<<<< HEAD
 
-Adding more Indian languages
-
-Improved language-specific speech recognition
-
-Better noise suppression
-
-Model quantization and pruning
-
-More efficient edge inference
-
-Automatic communication-link selection
-
-Adaptive bitrate/encoding
-
-Real radio-hardware integration
-
-Stronger packet-loss recovery
-
-Expanded emergency-alert functionality
-
-More comprehensive language-wise benchmarking
-=======
->>>>>>> a7b85f0fffb03611206e50b62e3e24a345198aa2
-
-Adding more Indian languages
-
-Improved language-specific speech recognition
-
-Better noise suppression
-
-Model quantization and pruning
-
-More efficient edge inference
-
-Automatic communication-link selection
-
-Adaptive bitrate/encoding
-
-Real radio-hardware integration
-
-Stronger packet-loss recovery
-
-Expanded emergency-alert functionality
-
-More comprehensive language-wise benchmarking
+- Adding more Indian languages
+- Improved language-specific speech recognition
+- Better noise suppression
+- Model quantization and pruning
+- More efficient edge inference
+- Automatic communication-link selection
+- Adaptive bitrate/encoding
+- Real radio-hardware integration
+- Stronger packet-loss recovery
+- Expanded emergency-alert functionality
+- More comprehensive language-wise benchmarking
 
 ## 🏆 Project Context
 
