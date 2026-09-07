@@ -355,41 +355,41 @@ Recommended implementation practices:
 - Restrict local network access where appropriate
 - Log only information required for debugging/evaluation
 
-## 📁 Suggested Repository Structure
+## 📁 Repository Structure
 
-The exact structure should match the implementation in the repository. A clean structure can look like:
+The repository is organized into the following major components:
 
-iTantra/
+```text
+ITANTRA/
 │
-├── frontend/
-│   ├── index.html
-│   ├── css/
-│   └── js/
+├── assets/
+│   ├── iTantra_dashboard.png
+│   └── iTantra_dashboard2.png
 │
-├── backend/
-│   ├── api/
-│   ├── services/
-│   └── models/
+├── iTantra/
 │
-├── ml/
-│   ├── stt/
-│   ├── tts/
-│   └── preprocessing/
+├── itantra-ai-network/
 │
-├── network/
-│   ├── websocket/
-│   └── simulation/
+├── itantrafrontend/
 │
-├── data/
-│   └── sample/
-│
-├── logs/
-│
+├── original_LinkConsole.tsx
+├── start_itantra.bat
 ├── README.md
-├── .gitignore
-└── LICENSE
+└── .gitignore
+```
 
-Treat this as a recommended organization, not a claim about the current local folder structure.
+### Main Components
+
+| Component | Purpose |
+|---|---|
+| `assets/` | Project screenshots and README visuals |
+| `iTantra/` | Main iTantra project components |
+| `itantra-ai-network/` | AI/network-related project components |
+| `itantrafrontend/` | Frontend application |
+| `original_LinkConsole.tsx` | Link/communication console component |
+| `start_itantra.bat` | Windows startup script |
+| `README.md` | Project documentation |
+| `.gitignore` | Specifies files excluded from Git tracking |
 
 ## 🚀 Getting Started
 
