@@ -141,7 +141,7 @@ The iTantra communication pipeline follows a Speech → Text → Transmission �
 └──────────────┘
 ```
 
-🏗️ Technical Architecture
+## 🏗️ Technical Architecture
 
 The proposed architecture is divided into six major stages:
 
@@ -171,7 +171,7 @@ Stage 6 — Network Simulation & Live Metrics
 
 A WebSocket/communication layer can simulate constrained network conditions and expose live communication metrics for evaluation.
 
-🛠️ Technology Stack
+## 🛠️ Technology Stack
 
 Layer
 
@@ -223,7 +223,7 @@ AI4Bharat IndicCorp / IndicVoices, IITM Indic-TTS Dataset
 
 Important: The project proposal lists several model/runtime options and research references. The exact model used in a particular build should be documented in the corresponding source/configuration files rather than assumed from the proposal.
 
-🤖 AI / ML Components
+## 🤖 AI / ML Components
 
 Speech-to-Text
 
@@ -253,7 +253,7 @@ PyTorch Mobile
 
 The overall objective is to move inference closer to the user/device wherever hardware and model size permit.
 
-📡 Low-Bandwidth Communication Strategy
+## 📡 Low-Bandwidth Communication Strategy
 
 Traditional voice communication sends a continuous audio stream. iTantra instead follows a semantic communication approach:
 
@@ -278,6 +278,17 @@ Reconstructed Voice
 This is particularly useful when the communication channel has:
 
 Low bitrate
+<<<<<<< HEAD
+
+High latency
+
+Packet loss
+
+Intermittent connectivity
+
+Limited data availability
+=======
+>>>>>>> a7b85f0fffb03611206e50b62e3e24a345198aa2
 
 High latency
 
@@ -287,7 +298,7 @@ Intermittent connectivity
 
 Limited data availability
 
-📊 Network & Evaluation Metrics
+## 📊 Network & Evaluation Metrics
 
 The proposed prototype includes live monitoring/simulation of communication conditions. Relevant metrics include:
 
@@ -317,7 +328,7 @@ WER = (Substitutions + Deletions + Insertions) / Number of Reference Words
 
 For multilingual evaluation, these metrics should ideally be reported separately for each supported language rather than only as one overall score.
 
-🌐 Communication Modes
+## 🌐 Communication Modes
 
 The architecture is intended to support communication over locally available links such as:
 
@@ -333,7 +344,7 @@ WebSocket-based prototype/simulation
 
 The actual physical radio integration can be treated as a deployment-specific communication layer while the STT → text → TTS pipeline remains modular.
 
-🖥️ Prototype Concept
+## 🖥️ Prototype Concept
 
 The proposal's current prototype UI demonstrates a radio/communication interface containing concepts such as:
 
@@ -355,11 +366,28 @@ Message/communication area
 
 This UI is designed around a walkie-talkie-style communication experience.
 
-👥 Target Users
+## 👥 Target Users
 
 iTantra is designed with the following user groups in mind:
 
 Rural and low-connectivity users
+<<<<<<< HEAD
+
+Regional-language users
+
+Low-end device users
+
+Emergency and disaster-response teams
+
+Field teams
+
+Students and event teams
+
+Remote communities
+
+Users who cannot depend on continuous internet access
+=======
+>>>>>>> a7b85f0fffb03611206e50b62e3e24a345198aa2
 
 Regional-language users
 
@@ -375,7 +403,7 @@ Remote communities
 
 Users who cannot depend on continuous internet access
 
-🌍 Expected Impact
+## 🌍 Expected Impact
 
 Social Impact
 
@@ -402,14 +430,57 @@ Works toward low/mid-range device compatibility
 Reduces mobile-data requirements
 
 Disaster & Public Safety
+<<<<<<< HEAD
 
 Provides an alternative communication channel during network outages
 
 Can help responders exchange critical information
 
 Supports short-range communication without continuous internet dependency
+=======
+>>>>>>> a7b85f0fffb03611206e50b62e3e24a345198aa2
 
-⚠️ Challenges & Mitigation Strategies
+Provides an alternative communication channel during network outages
+
+<<<<<<< HEAD
+Challenge
+
+Proposed Mitigation
+
+Limited CPU / RAM / battery
+
+Quantization and compressed models
+
+STT accuracy affected by accents/noise
+
+Noise filtering and language-specific models
+
+Regional language variation
+
+Multilingual/language-specific speech models
+
+Connectivity interruptions
+
+Reconnection and adaptive switching
+
+Limited Wi-Fi/Bluetooth/radio range
+
+Modular communication layer
+
+Large AI models
+
+Edge optimization and lightweight runtimes
+
+Adding new languages/devices
+
+Modular architecture
+=======
+Can help responders exchange critical information
+
+Supports short-range communication without continuous internet dependency
+>>>>>>> a7b85f0fffb03611206e50b62e3e24a345198aa2
+
+## ⚠️ Challenges & Mitigation Strategies
 
 Challenge
 
@@ -443,7 +514,7 @@ Adding new languages/devices
 
 Modular architecture
 
-🔐 Security & Privacy Considerations
+## 🔐 Security & Privacy Considerations
 
 An offline-capable design can reduce the need to send raw voice recordings to cloud services.
 
@@ -465,7 +536,7 @@ Log only information required for debugging/evaluation
 
 Never upload API keys, passwords, tokens, private certificates, or other secrets to GitHub.
 
-📁 Suggested Repository Structure
+## 📁 Suggested Repository Structure
 
 The exact structure should match the implementation in the repository. A clean structure can look like:
 
@@ -501,7 +572,7 @@ iTantra/
 
 Treat this as a recommended organization, not a claim about the current local folder structure.
 
-🚀 Getting Started
+## 🚀 Getting Started
 
 1. Clone the repository
 
@@ -536,7 +607,7 @@ Do not commit .env or credentials to GitHub.
 
 Use the project's actual frontend/backend startup commands. Document the exact commands here once the repository entry points are finalized.
 
-🧪 Testing & Evaluation
+## 🧪 Testing & Evaluation
 
 The project can be evaluated at multiple levels:
 
@@ -569,6 +640,19 @@ Intelligibility
 Language correctness
 
 System
+<<<<<<< HEAD
+
+CPU usage
+
+Memory consumption
+
+Model size
+
+Battery/resource requirements
+
+Performance on low-end hardware
+=======
+>>>>>>> a7b85f0fffb03611206e50b62e3e24a345198aa2
 
 CPU usage
 
@@ -580,7 +664,7 @@ Battery/resource requirements
 
 Performance on low-end hardware
 
-🔬 Research References
+## 🔬 Research References
 
 The proposal references the following technologies and datasets for the STT/TTS pipeline:
 
@@ -598,9 +682,34 @@ IITM Indic-TTS Dataset
 
 These references are intended to support the development of multilingual speech recognition and synthesis components.
 
-🗺️ Future Scope
+## 🗺️ Future Scope
 
 Potential extensions include:
+<<<<<<< HEAD
+
+Adding more Indian languages
+
+Improved language-specific speech recognition
+
+Better noise suppression
+
+Model quantization and pruning
+
+More efficient edge inference
+
+Automatic communication-link selection
+
+Adaptive bitrate/encoding
+
+Real radio-hardware integration
+
+Stronger packet-loss recovery
+
+Expanded emergency-alert functionality
+
+More comprehensive language-wise benchmarking
+=======
+>>>>>>> a7b85f0fffb03611206e50b62e3e24a345198aa2
 
 Adding more Indian languages
 
@@ -624,7 +733,7 @@ Expanded emergency-alert functionality
 
 More comprehensive language-wise benchmarking
 
-🏆 Project Context
+## 🏆 Project Context
 
 Project: iTantra
 Problem Statement: SIH26173
@@ -633,7 +742,7 @@ Team: KABOOTAR
 
 The project aims to combine multilingual speech AI, lightweight text transmission and resilient local communication into a practical communication system for low-bandwidth environments.
 
-👨‍💻 Team
+## 👨‍💻 Team
 
 KABOOTAR — Smart India Hackathon 2026
 1. Sovit Swain
@@ -643,6 +752,6 @@ KABOOTAR — Smart India Hackathon 2026
 5. Akansha Ajay
 6. Ishita Singh
 
-⭐ If You Find This Project Useful
+## ⭐ If You Find This Project Useful
 
 Consider starring the repository and sharing feedback or suggestions through GitHub Issues.
