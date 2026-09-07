@@ -491,7 +491,7 @@ The project aims to combine multilingual speech AI, lightweight text transmissio
 
 ## 👨‍💻 Team
 
-KABOOTAR — Smart India Hackathon 2026
+### KABOOTAR — Smart India Hackathon 2026
 1. Sovit Swain
 2. Sumana Shyam
 3. Jayita Mandal
