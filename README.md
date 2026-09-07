@@ -1,14 +1,37 @@
-# iTantra — Indian Multilingual TTS & STT Neural Transceiver
+iTantra — Indian Multilingual TTS & STT Neural Transceiver
 
 Smart India Hackathon 2026 — Problem Statement SIH26173
 Team: KABOOTAR
-Theme: Miscellaneous | Category: Software
+Theme: Miscellaneous
+Category: Software
 
-iTantra is an offline-capable, multilingual neural voice transceiver designed for communication over low-bandwidth and unreliable links. Instead of transmitting raw voice/audio, the system converts speech into lightweight text, transfers the text over a constrained communication channel, and reconstructs it as speech at the receiving side.
+📖 Overview
 
-This approach is intended for rural and low-connectivity environments, disaster/emergency communication, field operations, remote communities, and situations where conventional internet-based voice communication is unreliable.
+iTantra is an offline-capable, multilingual neural voice transceiver designed for communication over low-bandwidth and unreliable links.
 
-## 📌 Problem Statement
+Instead of transmitting raw voice/audio, iTantra converts speech into lightweight text, transfers the text over a constrained communication channel, and reconstructs it as speech at the receiving side.
+
+Core Communication Pipeline
+
+Speech → Speech-to-Text (STT) → Lightweight Text → Transmission → Text → Text-to-Speech (TTS) → Speech
+
+This approach is intended for:
+
+Rural and low-connectivity environments
+
+Disaster and emergency communication
+
+Field operations
+
+Remote communities
+
+Low-bandwidth environments
+
+Situations where mobile data or cloud services are unavailable
+
+Short-range/local communication scenarios
+
+📌 Problem Statement
 
 Voice/audio communication is data-intensive. Over low-data-rate links, transmitting raw audio can require significantly more bandwidth and can become unreliable, especially during:
 
@@ -24,17 +47,17 @@ Field communication
 
 Situations where mobile data or cloud services are unavailable
 
-iTantra addresses this by transforming:
+iTantra addresses this challenge by converting voice into a compact textual representation before transmission.
 
-Speech → Speech-to-Text (STT) → Lightweight Text → Transmission → Text → Text-to-Speech (TTS) → Speech
+The result is a communication pipeline that minimizes the amount of information that needs to cross a constrained communication link.
 
-The result is a communication pipeline that minimizes the amount of information that needs to cross the constrained link.
+🖥️ Application Preview
 
-![Image description](assets/iTantra_dashboard.png)
 
-![Image description](assets/iTantra_dashboard2.png)
 
-## 🚀 Key Features
+
+
+🚀 Key Features
 
 1. Speech-to-Text (STT)
 
@@ -46,19 +69,29 @@ Converts received text back into speech so that the receiver can hear the messag
 
 3. Multilingual Communication
 
-Designed to support communication across Indian/regional languages through multilingual STT and TTS components. (Supportive Languages: English, Hindi, Bengali, Tamil)
+Designed to support communication across Indian and regional languages through multilingual STT and TTS components.
+
+Current supportive languages:
+
+English
+
+Hindi
+
+Bengali
+
+Tamil
 
 4. Low-Bandwidth Communication
 
-Transmits lightweight text rather than raw audio, reducing communication data requirements.
+Transmits lightweight text rather than raw audio, reducing the amount of data that needs to cross the communication channel.
 
 5. Offline / On-Device AI Capability
 
-The architecture is designed to support local STT/TTS inference, reducing dependency on cloud APIs and internet connectivity when suitable on-device models are available.
+The architecture supports local STT/TTS inference, reducing dependency on cloud APIs and continuous internet connectivity when suitable on-device models are available.
 
 6. Device-to-Device Communication
 
-The proposed communication layer can operate through available local connectivity mechanisms such as:
+The communication layer is designed to work with locally available connectivity mechanisms such as:
 
 Wi-Fi
 
@@ -70,15 +103,15 @@ Local/LAN communication
 
 7. Walkie-Talkie Style Interaction
 
-The prototype concept includes a push-to-talk interaction model for short, real-time voice messages.
+The prototype follows a push-to-talk interaction model for short, real-time voice messages.
 
 8. Emergency Communication
 
-Includes an emergency-oriented communication concept with alert priority functionality for situations where rapid message exchange is important.
+Includes an emergency-oriented communication concept with alert-priority functionality for situations where rapid message exchange is important.
 
 9. Network Simulation & Live Metrics
 
-The technical approach includes a WebSocket-based simulation layer for evaluating constrained communication conditions and monitoring metrics such as:
+A WebSocket-based simulation layer can be used to evaluate constrained communication conditions and monitor:
 
 Bandwidth
 
@@ -92,13 +125,12 @@ Word Error Rate (WER)
 
 10. Browser-Based Audio Capture
 
-The proposed frontend uses browser audio capabilities such as the Web Audio API / MediaRecorder API for capturing and playing audio.
+The frontend uses browser audio capabilities such as the Web Audio API and MediaRecorder API for capturing and playing audio.
 
-## 🧠 System Workflow
+🧠 System Workflow
 
-The iTantra communication pipeline follows a Speech → Text → Transmission → Speech architecture:
+The iTantra communication pipeline follows a Speech → Text → Transmission → Speech architecture.
 
-```text
 ┌──────────────┐
 │   Person A   │
 └──────┬───────┘
@@ -139,11 +171,10 @@ The iTantra communication pipeline follows a Speech → Text → Transmission �
 ┌──────────────┐
 │   Person B   │
 └──────────────┘
-```
 
-## 🏗️ Technical Architecture
+🏗️ Technical Architecture
 
-The proposed architecture is divided into six major stages:
+The proposed architecture is divided into six major stages.
 
 Stage 1 — Voice Input & Noise Suppression
 
@@ -155,13 +186,13 @@ The speech signal is passed to a multilingual speech-recognition component, whic
 
 Stage 3 — Compression & Transmission
 
-The recognized text is processed using encoding/compression techniques and can include error-control mechanisms before transmission.
+The recognized text is processed using encoding/compression techniques and may include error-control mechanisms before transmission.
 
 Because text is substantially lighter than raw voice/audio, the communication channel can operate with lower bandwidth requirements.
 
 Stage 4 — Reception & Decompression
 
-The receiver obtains the transmitted data, performs decoding/error recovery, and reconstructs the text message.
+The receiver obtains the transmitted data, performs decoding and error recovery where applicable, and reconstructs the text message.
 
 Stage 5 — Audio Reconstruction & Playback
 
@@ -171,7 +202,7 @@ Stage 6 — Network Simulation & Live Metrics
 
 A WebSocket/communication layer can simulate constrained network conditions and expose live communication metrics for evaluation.
 
-## 🛠️ Technology Stack
+🛠️ Technology Stack
 
 Layer
 
@@ -221,21 +252,19 @@ Data References
 
 AI4Bharat IndicCorp / IndicVoices, IITM Indic-TTS Dataset
 
-Important: The project proposal lists several model/runtime options and research references. The exact model used in a particular build should be documented in the corresponding source/configuration files rather than assumed from the proposal.
-
-## 🤖 AI / ML Components
+🤖 AI / ML Components
 
 Speech-to-Text
 
-The research and technical proposal references:
+The project references multilingual and offline-capable speech-recognition technologies such as:
 
 AI4Bharat / Vakyansh ASR Toolkit — Indic-language ASR models
 
-whisper.cpp — optimized/offline inference of OpenAI Whisper models
+whisper.cpp — optimized/offline inference for Whisper models
 
 Text-to-Speech
 
-The proposal references:
+The project references:
 
 AI4Bharat Indic-TTS — Indic-language TTS models
 
@@ -243,7 +272,7 @@ sherpa-onnx — on-device TTS inference using ONNX-based models
 
 Edge / Offline Inference
 
-Potential runtimes mentioned in the architecture include:
+Potential inference runtimes include:
 
 ONNX Runtime Web / WebAssembly
 
@@ -253,7 +282,7 @@ PyTorch Mobile
 
 The overall objective is to move inference closer to the user/device wherever hardware and model size permit.
 
-## 📡 Low-Bandwidth Communication Strategy
+📡 Low-Bandwidth Communication Strategy
 
 Traditional voice communication sends a continuous audio stream. iTantra instead follows a semantic communication approach:
 
@@ -275,20 +304,9 @@ Speech Synthesis
     ↓
 Reconstructed Voice
 
-This is particularly useful when the communication channel has:
+This approach is particularly useful when the communication channel has:
 
 Low bitrate
-<<<<<<< HEAD
-
-High latency
-
-Packet loss
-
-Intermittent connectivity
-
-Limited data availability
-=======
->>>>>>> a7b85f0fffb03611206e50b62e3e24a345198aa2
 
 High latency
 
@@ -298,322 +316,13 @@ Intermittent connectivity
 
 Limited data availability
 
-## 📊 Network & Evaluation Metrics
+📊 Network & Evaluation Metrics
 
-The proposed prototype includes live monitoring/simulation of communication conditions. Relevant metrics include:
-
-Bandwidth
-
-Measures the communication capacity available to the system.
-
-Bitrate
-
-Measures the amount of transmitted information per unit time.
-
-Latency
-
-Measures the delay between transmission and reception.
-
-Packet Loss
-
-Measures the proportion of transmitted packets that fail to reach the receiver.
-
-Word Error Rate (WER)
-
-Measures speech-recognition accuracy by comparing recognized text with reference/transcribed text.
-
-A standard WER formulation is:
-
-WER = (Substitutions + Deletions + Insertions) / Number of Reference Words
-
-For multilingual evaluation, these metrics should ideally be reported separately for each supported language rather than only as one overall score.
-
-## 🌐 Communication Modes
-
-The architecture is intended to support communication over locally available links such as:
-
-Wi-Fi
-
-Bluetooth
-
-Radio
-
-LAN
-
-WebSocket-based prototype/simulation
-
-The actual physical radio integration can be treated as a deployment-specific communication layer while the STT → text → TTS pipeline remains modular.
-
-## 🖥️ Prototype Concept
-
-The proposal's current prototype UI demonstrates a radio/communication interface containing concepts such as:
-
-Frequency/channel information
-
-Connection/standby state
-
-Language selection
-
-Push-to-talk control
-
-Voice input
-
-Alert priority
-
-Traffic/status information
-
-Message/communication area
-
-This UI is designed around a walkie-talkie-style communication experience.
-
-## 👥 Target Users
-
-iTantra is designed with the following user groups in mind:
-
-Rural and low-connectivity users
-<<<<<<< HEAD
-
-Regional-language users
-
-Low-end device users
-
-Emergency and disaster-response teams
-
-Field teams
-
-Students and event teams
-
-Remote communities
-
-Users who cannot depend on continuous internet access
-=======
->>>>>>> a7b85f0fffb03611206e50b62e3e24a345198aa2
-
-Regional-language users
-
-Low-end device users
-
-Emergency and disaster-response teams
-
-Field teams
-
-Students and event teams
-
-Remote communities
-
-Users who cannot depend on continuous internet access
-
-## 🌍 Expected Impact
-
-Social Impact
-
-Improves communication accessibility in remote communities
-
-Supports regional-language communication
-
-Helps communication during emergencies
-
-Environmental Impact
-
-Reduces dependence on dedicated communication hardware
-
-Makes better use of existing smartphones
-
-Encourages lightweight processing
-
-Economic Impact
-
-Reduces dependency on expensive telecom infrastructure
-
-Works toward low/mid-range device compatibility
-
-Reduces mobile-data requirements
-
-Disaster & Public Safety
-<<<<<<< HEAD
-
-Provides an alternative communication channel during network outages
-
-Can help responders exchange critical information
-
-Supports short-range communication without continuous internet dependency
-=======
->>>>>>> a7b85f0fffb03611206e50b62e3e24a345198aa2
-
-Provides an alternative communication channel during network outages
-
-<<<<<<< HEAD
-Challenge
-
-Proposed Mitigation
-
-Limited CPU / RAM / battery
-
-Quantization and compressed models
-
-STT accuracy affected by accents/noise
-
-Noise filtering and language-specific models
-
-Regional language variation
-
-Multilingual/language-specific speech models
-
-Connectivity interruptions
-
-Reconnection and adaptive switching
-
-Limited Wi-Fi/Bluetooth/radio range
-
-Modular communication layer
-
-Large AI models
-
-Edge optimization and lightweight runtimes
-
-Adding new languages/devices
-
-Modular architecture
-=======
-Can help responders exchange critical information
-
-Supports short-range communication without continuous internet dependency
->>>>>>> a7b85f0fffb03611206e50b62e3e24a345198aa2
-
-## ⚠️ Challenges & Mitigation Strategies
-
-Challenge
-
-Proposed Mitigation
-
-Limited CPU / RAM / battery
-
-Quantization and compressed models
-
-STT accuracy affected by accents/noise
-
-Noise filtering and language-specific models
-
-Regional language variation
-
-Multilingual/language-specific speech models
-
-Connectivity interruptions
-
-Reconnection and adaptive switching
-
-Limited Wi-Fi/Bluetooth/radio range
-
-Modular communication layer
-
-Large AI models
-
-Edge optimization and lightweight runtimes
-
-Adding new languages/devices
-
-Modular architecture
-
-## 🔐 Security & Privacy Considerations
-
-An offline-capable design can reduce the need to send raw voice recordings to cloud services.
-
-Recommended implementation practices:
-
-Keep API keys and credentials outside Git
-
-Use .env files for secrets
-
-Never commit passwords or tokens
-
-Avoid committing private datasets
-
-Validate received communication payloads
-
-Restrict local network access where appropriate
-
-Log only information required for debugging/evaluation
-
-Never upload API keys, passwords, tokens, private certificates, or other secrets to GitHub.
-
-## 📁 Suggested Repository Structure
-
-The exact structure should match the implementation in the repository. A clean structure can look like:
-
-iTantra/
-│
-├── frontend/
-│   ├── index.html
-│   ├── css/
-│   └── js/
-│
-├── backend/
-│   ├── api/
-│   ├── services/
-│   └── models/
-│
-├── ml/
-│   ├── stt/
-│   ├── tts/
-│   └── preprocessing/
-│
-├── network/
-│   ├── websocket/
-│   └── simulation/
-│
-├── data/
-│   └── sample/
-│
-├── logs/
-│
-├── README.md
-├── .gitignore
-└── LICENSE
-
-Treat this as a recommended organization, not a claim about the current local folder structure.
-
-## 🚀 Getting Started
-
-1. Clone the repository
-
-git clone https://github.com/<YOUR-USERNAME>/<YOUR-REPOSITORY>.git
-cd <YOUR-REPOSITORY>
-
-2. Install the required dependencies
-
-Install the dependencies required by the frontend, backend and ML components used by your particular implementation.
-
-For example, a project using Node.js and Python may require:
-
-npm install
-
-and a Python environment such as:
-
-python -m venv .venv
-
-Then activate the environment and install the project's Python dependencies if a requirements.txt file is present:
-
-pip install -r requirements.txt
-
-Replace these commands with the exact commands used by your implementation before publishing the final README.
-
-3. Configure environment variables
-
-If the project uses environment variables, create a local .env file.
-
-Do not commit .env or credentials to GitHub.
-
-4. Start the application
-
-Use the project's actual frontend/backend startup commands. Document the exact commands here once the repository entry points are finalized.
-
-## 🧪 Testing & Evaluation
-
-The project can be evaluated at multiple levels:
+The prototype can be evaluated at multiple levels.
 
 Speech Recognition
 
-WER
+Word Error Rate (WER)
 
 Language-wise accuracy
 
@@ -640,19 +349,6 @@ Intelligibility
 Language correctness
 
 System
-<<<<<<< HEAD
-
-CPU usage
-
-Memory consumption
-
-Model size
-
-Battery/resource requirements
-
-Performance on low-end hardware
-=======
->>>>>>> a7b85f0fffb03611206e50b62e3e24a345198aa2
 
 CPU usage
 
@@ -664,9 +360,284 @@ Battery/resource requirements
 
 Performance on low-end hardware
 
-## 🔬 Research References
+For multilingual evaluation, metrics should be reported separately for each supported language rather than only as one overall score. This helps identify language-specific performance differences and possible language bias.
 
-The proposal references the following technologies and datasets for the STT/TTS pipeline:
+🌐 Communication Modes
+
+The architecture is intended to support communication over locally available links such as:
+
+Wi-Fi
+
+Bluetooth
+
+Radio
+
+LAN
+
+WebSocket-based prototype/simulation
+
+The physical radio integration can be treated as a deployment-specific communication layer while the STT → text → TTS pipeline remains modular.
+
+🖥️ Prototype Concept
+
+The prototype UI follows a walkie-talkie-style communication experience and includes concepts such as:
+
+Frequency/channel information
+
+Connection/standby state
+
+Language selection
+
+Push-to-talk control
+
+Voice input
+
+Alert priority
+
+Traffic/status information
+
+Message/communication area
+
+👥 Target Users
+
+iTantra is designed with the following user groups in mind:
+
+Rural and low-connectivity users
+
+Regional-language users
+
+Low-end device users
+
+Emergency and disaster-response teams
+
+Field teams
+
+Students and event teams
+
+Remote communities
+
+Users who cannot depend on continuous internet access
+
+🌍 Expected Impact
+
+Social Impact
+
+Improves communication accessibility in remote communities
+
+Supports regional-language communication
+
+Helps communication during emergencies
+
+Environmental Impact
+
+Reduces dependence on dedicated communication hardware
+
+Makes better use of existing smartphones
+
+Encourages lightweight processing
+
+Economic Impact
+
+Reduces dependency on expensive telecom infrastructure
+
+Works toward low/mid-range device compatibility
+
+Reduces mobile-data requirements
+
+Disaster & Public Safety
+
+Provides an alternative communication channel during network outages
+
+Can help responders exchange critical information
+
+Supports short-range communication without continuous internet dependency
+
+⚠️ Challenges & Mitigation Strategies
+
+Challenge
+
+Proposed Mitigation
+
+Limited CPU / RAM / battery
+
+Quantization and compressed models
+
+STT accuracy affected by accents/noise
+
+Noise filtering and language-specific models
+
+Regional language variation
+
+Multilingual/language-specific speech models
+
+Connectivity interruptions
+
+Reconnection and adaptive switching
+
+Limited Wi-Fi/Bluetooth/radio range
+
+Modular communication layer
+
+Large AI models
+
+Edge optimization and lightweight runtimes
+
+Adding new languages/devices
+
+Modular architecture
+
+🔐 Security & Privacy Considerations
+
+An offline-capable design can reduce the need to send raw voice recordings to cloud services.
+
+Recommended implementation practices:
+
+Keep API keys and credentials outside Git
+
+Use .env files for secrets
+
+Never commit passwords or tokens
+
+Avoid committing private datasets
+
+Validate received communication payloads
+
+Restrict local network access where appropriate
+
+Log only information required for debugging/evaluation
+
+Never upload API keys, passwords, tokens, private certificates, or other secrets to GitHub
+
+📁 Repository Structure
+
+The repository contains the main project components along with supporting files and documentation.
+
+ITANTRA/
+├── assets/
+│   ├── iTantra_dashboard.png
+│   └── iTantra_dashboard2.png
+│
+├── iTantra/
+├── itantra-ai-network/
+├── itantrafrontend/
+│
+├── original_LinkConsole.tsx
+├── start_itantra.bat
+├── README.md
+└── .gitignore
+
+The internal structure of the individual project directories may vary depending on the implementation and development stage.
+
+🚀 Getting Started
+
+1. Clone the Repository
+
+git clone https://github.com/Anubhab47677/ITANTRA.git
+cd ITANTRA
+
+2. Review the Project Structure
+
+The repository contains the frontend, AI/network components, project assets and supporting files.
+
+3. Windows Startup
+
+A Windows startup script is included in the repository:
+
+start_itantra.bat
+
+Run the script from the project directory if your local environment has all required dependencies configured.
+
+4. Dependencies
+
+The exact dependencies depend on the implementation used by each project component.
+
+For Node.js-based components, install the dependencies specified by their respective package.json files.
+
+For Python-based components, create and activate a virtual environment and install the dependencies specified by the relevant requirements.txt file if present.
+
+Example:
+
+python -m venv .venv
+
+Then activate the environment and install the required Python packages.
+
+5. Environment Variables
+
+If any component requires environment variables:
+
+.env
+
+should be created locally.
+
+Do not commit .env files, credentials, API keys or other secrets to GitHub.
+
+🧪 Testing & Evaluation
+
+The system can be evaluated using the following dimensions.
+
+Speech Recognition
+
+Word Error Rate (WER)
+
+Language-wise accuracy
+
+Noise robustness
+
+Accent/variation robustness
+
+Communication
+
+End-to-end latency
+
+Effective bitrate
+
+Packet-loss tolerance
+
+Reconnection behavior
+
+Speech Reconstruction
+
+TTS quality
+
+Intelligibility
+
+Language correctness
+
+System Performance
+
+CPU usage
+
+Memory consumption
+
+Model size
+
+Battery/resource requirements
+
+Performance on low-end hardware
+
+Multilingual / Language-Bias Evaluation
+
+Because the current system supports English, Hindi, Bengali and Tamil, evaluation should compare the same metrics independently across all four languages.
+
+A useful evaluation procedure is:
+
+Use comparable test samples for every supported language.
+
+Measure WER and language-wise recognition accuracy separately.
+
+Test speech with different speakers and accents where datasets permit.
+
+Evaluate performance under different noise levels.
+
+Compare latency and resource usage across languages.
+
+Report per-language results instead of hiding differences inside a single average score.
+
+This helps identify whether the model performs substantially better for one language than another.
+
+🔬 Research References
+
+The project references the following technologies and datasets for multilingual speech processing:
 
 AI4Bharat / Vakyansh ASR Toolkit
 
@@ -680,36 +651,11 @@ AI4Bharat IndicCorp / IndicVoices
 
 IITM Indic-TTS Dataset
 
-These references are intended to support the development of multilingual speech recognition and synthesis components.
+These references support the development and evaluation of multilingual speech-recognition and speech-synthesis components.
 
-## 🗺️ Future Scope
+🗺️ Future Scope
 
 Potential extensions include:
-<<<<<<< HEAD
-
-Adding more Indian languages
-
-Improved language-specific speech recognition
-
-Better noise suppression
-
-Model quantization and pruning
-
-More efficient edge inference
-
-Automatic communication-link selection
-
-Adaptive bitrate/encoding
-
-Real radio-hardware integration
-
-Stronger packet-loss recovery
-
-Expanded emergency-alert functionality
-
-More comprehensive language-wise benchmarking
-=======
->>>>>>> a7b85f0fffb03611206e50b62e3e24a345198aa2
 
 Adding more Indian languages
 
@@ -733,25 +679,37 @@ Expanded emergency-alert functionality
 
 More comprehensive language-wise benchmarking
 
-## 🏆 Project Context
+Improved fairness and language-bias analysis
+
+Support for additional low-resource Indian languages
+
+Broader evaluation across speakers, accents and environments
+
+🏆 Project Context
 
 Project: iTantra
 Problem Statement: SIH26173
 Event: Smart India Hackathon 2026
 Team: KABOOTAR
 
-The project aims to combine multilingual speech AI, lightweight text transmission and resilient local communication into a practical communication system for low-bandwidth environments.
+iTantra aims to combine multilingual speech AI, lightweight text transmission and resilient local communication into a practical communication system for low-bandwidth environments.
 
-## 👨‍💻 Team
+👨‍💻 Team
 
 KABOOTAR — Smart India Hackathon 2026
-1. Sovit Swain
-2. Sumana Shyam
-3. Jayita Mandal
-4. Anubhab Samantaray
-5. Akansha Ajay
-6. Ishita Singh
 
-## ⭐ If You Find This Project Useful
+Sovit Swain
 
-Consider starring the repository and sharing feedback or suggestions through GitHub Issues.
+Sumana Shyam
+
+Jayita Mandal
+
+Anubhab Samantaray
+
+Akansha Ajay
+
+Ishita Singh
+
+⭐ Support the Project
+
+If you find iTantra useful or interesting, consider starring the repository and sharing feedback or suggestions through GitHub Issues.
