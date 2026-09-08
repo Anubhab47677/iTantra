@@ -499,6 +499,8 @@ The project aims to combine multilingual speech AI, lightweight text transmissio
 5. Akansha Ajay
 6. Ishita Singh
 
+Mentor: Dr. Sankar Kumar Mridha
+
 ## ⭐ If You Find This Project Useful
 
 Consider starring the repository and sharing feedback or suggestions through GitHub Issues.
